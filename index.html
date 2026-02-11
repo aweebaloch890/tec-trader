@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEC TRADER</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+</head>
+<body>
+
+<nav>
+<h1>TEC TRADER</h1>
+<div>
+<a onclick="showPage('home')">Home</a>
+<a onclick="showPage('cartPage')">
+<i class="fa fa-shopping-cart"></i>
+<span id="cartCount">0</span>
+</a>
+<a onclick="showPage('loginPage')">Login</a>
+<a onclick="adminLogin()">Admin</a>
+<button class="toggle" onclick="toggleTheme()">🌙</button>
+</div>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+<h2>Categories</h2>
+<div class="grid" id="categoryContainer"></div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" class="hidden">
+<button class="btn" onclick="showPage('home')">← Back</button>
+<h2 id="categoryTitle"></h2>
+<div class="grid" id="productContainer"></div>
+</section>
+
+<!-- DETAIL -->
+<section id="detail" class="hidden">
+<button class="btn" onclick="showPage('products')">← Back</button>
+<img id="detailImage">
+<h2 id="detailTitle"></h2>
+<p id="detailDesc"></p>
+<h3 id="detailPrice"></h3>
+<h4 id="ltcPrice"></h4>
+<div>
+<button class="btn" onclick="changeQty(-1)">-</button>
+<span id="qty">1</span>
+<button class="btn" onclick="changeQty(1)">+</button>
+</div>
+<input placeholder="Coupon Code" id="couponInput">
+<button class="btn" onclick="applyCoupon()">Apply Coupon</button>
+<button class="btn" onclick="addToCart()">Add to Cart</button>
+<button class="btn" onclick="directBuy()">Buy Now</button>
+</section>
+
+<!-- CART -->
+<section id="cartPage" class="hidden">
+<h2>Shopping Cart</h2>
+<div id="cartItems"></div>
+<h3 id="cartTotal"></h3>
+<button class="btn" onclick="checkout()">Checkout</button>
+</section>
+
+<!-- CHECKOUT -->
+<section id="checkoutPage" class="hidden">
+<h2>Checkout</h2>
+<div id="checkoutSummary"></div>
+<button class="btn" onclick="processPayment()">Confirm Payment</button>
+</section>
+
+<!-- TRACK ORDER -->
+<section id="trackingPage" class="hidden">
+<h2>Track Order</h2>
+<input placeholder="Order ID" id="trackID">
+<button class="btn" onclick="trackOrder()">Track</button>
+<div id="trackResult"></div>
+</section>
+
+<!-- LOGIN -->
+<section id="loginPage" class="hidden">
+<h2>Login / Register</h2>
+<input placeholder="Username" id="username">
+<input type="password" placeholder="Password" id="password">
+<button class="btn" onclick="loginUser()">Login</button>
+<button class="btn" onclick="registerUser()">Register</button>
+</section>
+
+<!-- ADMIN -->
+<section id="adminPanel" class="hidden">
+<h2>Admin Panel</h2>
+
+<h3>Add Category</h3>
+<input placeholder="Category Name" id="catName">
+<input placeholder="Category Image URL" id="catImg">
+<button class="btn" onclick="addCategory()">Add Category</button>
+
+<h3>Add Product</h3>
+<input placeholder="Title" id="pTitle">
+<input placeholder="Category" id="pCategory">
+<input placeholder="Price" id="pPrice">
+<input placeholder="Image URL" id="pImg">
+<textarea placeholder="Description" id="pDesc"></textarea>
+<button class="btn" onclick="addProduct()">Add Product</button>
+
+<h3>Delete Product</h3>
+<input placeholder="Product ID" id="deleteID">
+<button class="btn" onclick="deleteProduct()">Delete</button>
+
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
