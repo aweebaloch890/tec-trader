@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Product</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="product-detail" style="padding:50px;"></div>
+
+<script src="products.js"></script>
+<script>
+let id = localStorage.getItem("selectedProduct");
+let product = products.find(p=>p.id==id);
+
+document.getElementById("product-detail").innerHTML = `
+<h1>${product.name}</h1>
+<img src="${product.image}" width="400">
+<p>${product.desc}</p>
+<h2>Rs ${product.price}</h2>
+<button onclick="addToCart()">Add to Cart</button>
+`;
+
+function addToCart(){
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+cart.push(product);
+localStorage.setItem("cart",JSON.stringify(cart));
+alert("Added to cart!");
+window.location.href="cart.html";
+}
+</script>
+</body>
+</html>

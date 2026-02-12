@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Checkout</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div style="padding:50px;max-width:500px;margin:auto;">
+<h2>Manual Payment</h2>
+<p>Send Payment To:</p>
+<h3>EasyPaisa / JazzCash</h3>
+<h2>03079984006</h2>
+
+<input type="text" placeholder="Your Name">
+<input type="text" placeholder="WhatsApp Number">
+<input type="text" placeholder="Transaction ID">
+
+<button onclick="confirmOrder()">Confirm Order</button>
+</div>
+
+<script>
+function confirmOrder(){
+alert("Order Submitted Successfully!");
+localStorage.removeItem("cart");
+window.location.href="index.html";
+}
+</script>
+
+</body>
+</html>
